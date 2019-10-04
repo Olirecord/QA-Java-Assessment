@@ -32,6 +32,8 @@ public class Assessment {
 	// getBert("xxbeRTyy") ==> ""
 
 	public String getBert(String input) {
+		
+		
 		return "";
 	}
 
@@ -47,38 +49,24 @@ public class Assessment {
 	// evenlySpaced(4, 60, 9) ==> false
 
 	public boolean evenlySpaced(int a, int b, int c) {
-		
-		
-		boolean valid = true;
-		
 		if (a>b&b>c) {
-			if(a-b==b-c) valid=true;
-				else valid=false;
+			return a-b==b-c;
 		}
-		if (a>c&c>b) {
-			if (a-c==c-b) valid=true;
-			else valid=false;
+		else if (a>c&c>b) {
+			return a-c==c-b;
 		}
-		if (b>a&a>c) {
-			if (b-a==a-c) valid=true;
-			else valid=false;
+		else if (b>a&a>c) {
+			return b-a==a-c;
 		}
-		if (b>c&c>a) {
-			if (b-c==c-a) valid=true;
-			else valid=false;
+		else if (b>c&c>a) {
+			return b-c==c-a;
 		}
-		if (c>a&a>b) {
-			if (c-a==a-b) valid=true;
-			else valid=false;
+		else if (c>a&a>b) {
+			return c-a==a-b;
 		}
-		if (c>b&b>a) {
-			if (c-b==b-a) valid=true;
-			else valid=false;
-		}
-		
-		return valid;
-		
-		
+		else {
+			return c-b==b-a;
+		}		
 	}
 		
 		
@@ -93,7 +81,18 @@ public class Assessment {
 	// nMid("Chocolate", 1) ==> "Choclate"
 
 	public String nMid(String input, int a) {
-		return "";
+		
+		String sec1;
+		String secEnd;
+		String result;
+		
+		sec1= input.substring(0,input.length()/2-a/2);
+		secEnd= input.substring(input.length()/2+a/2+1,input.length());
+		result = sec1+secEnd;
+		
+		
+		
+		return result;
 	}
 
 
@@ -117,7 +116,32 @@ public class Assessment {
 	//amISearch("I have been in Amsterdam") ==> 0
 
 	public int amISearch(String arg1) {
-		return -1;
+		
+		String lookFor=" am ";
+		String alpha;
+		int word=0;
+		int i =0;
+		
+		arg1 = arg1.toLowerCase();
+		
+		if(arg1.substring(i,i+3).equals("am ")) {
+			word++;
+		}
+		if(arg1.substring(arg1.length()-3,arg1.length()).equals(" am")) {
+			word++;
+		}
+		
+		for (;i<arg1.length()-lookFor.length()+1;i++) {
+			alpha=arg1.substring(i, i+lookFor.length());
+			
+			if(alpha.equals(" am ")) {
+				word+=1;
+				
+			}
+		}
+		
+		return word;
+		
 		
 	}
 	
@@ -131,7 +155,19 @@ public class Assessment {
 	//fizzBuzz(15) ==> "fizzbuzz"
 	
 	public String fizzBuzz(int arg1) {
-		return null;
+		
+		String valid = "";
+		
+		if(arg1>=3||arg1>=5) {
+			if(arg1%3==0) valid="fizz";
+			if(arg1%5==0) valid="buzz";
+			if(arg1%3==0&arg1%5==0) valid="fizzbuzz";
+			
+		}
+	
+		
+		
+		return valid;
 		
 	}
 	
@@ -150,6 +186,6 @@ public class Assessment {
 	//largest("555 72 86 45 10") ==> 15
 	
 	public int largest(String arg1) {
-		return -1;
+		Integer.parseInt("3"); // 3
 	}
 }
