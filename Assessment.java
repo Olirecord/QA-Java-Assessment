@@ -104,8 +104,29 @@ public class Assessment {
 	// superBlock("") ==> 0
 
 	public int superBlock(String input) {
-		return -1;
-
+		
+		String check1="";
+		String check2="";
+		int count=0;
+		int max=0;
+		
+		int i = 0;
+		
+		for (;i<input.length()-1;i++) {
+			check1=input.substring(i,i+1);
+			check2=input.substring(i+1,i+2);
+			
+			if (check1.equals(check2)) {
+				count++;
+				
+			}
+			if(count>max) {
+				max=count;
+			}
+				
+		}
+			
+		return max;
 	}
 	
 	//given a string - return the number of times "am" appears in the String ignoring case -
@@ -187,5 +208,9 @@ public class Assessment {
 	
 	public int largest(String arg1) {
 		Integer.parseInt("3"); // 3
+		
+		//searches both at a time like the superblock but converts to ints. if one of them is a space then it doesnt count
+		//wil need two variables to do the check and then one for highest and another for current streak.
+		
 	}
 }
