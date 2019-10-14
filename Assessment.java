@@ -107,7 +107,7 @@ public class Assessment {
 		
 		String check1="";
 		String check2="";
-		int count=0;
+		int count=1;
 		int max=0;
 		
 		int i = 0;
@@ -119,11 +119,11 @@ public class Assessment {
 			if (check1.equals(check2)) {
 				count++;
 				
-			}
-			if(count>max) {
+			
+			if(count>max) 
 				max=count;
 			}
-				
+			else count=1;	
 		}
 			
 		return max;
